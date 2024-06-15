@@ -26,7 +26,7 @@ const FilterButton: React.FC<FilterButtonProps> = ({ filteredData, setFilteredDa
       </button>
       {showPopup && (
         <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg shadow-lg w-[612px] h-[400px] relative border-4 border-yellow-500">
+          <div className="bg-white rounded-lg shadow-lg w-[612px] h-[400px] relative border-2">
             <button
               className="absolute top-2 right-2 text-gray-600 hover:text-gray-900 text-2xl"
               onClick={handleClosePopup}
