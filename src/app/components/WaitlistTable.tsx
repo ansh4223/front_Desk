@@ -1,4 +1,10 @@
 import React from 'react';
+import { GoDotFill } from 'react-icons/go';
+import { SlCalender } from 'react-icons/sl';
+import { CgProfile } from 'react-icons/cg';
+import { LuCircle } from 'react-icons/lu';
+import { CiMail } from 'react-icons/ci';
+import { BsHash } from 'react-icons/bs';
 
 type WaitlistEntry = {
   createdOn: string;
@@ -43,25 +49,39 @@ const WaitlistTable: React.FC<WaitlistTableProps> = ({
             />
           </th>
           {columns.includes("createdOn") && (
-            <th className="px-4 py-2 border-b border-gray-300 text-left font-normal">Created On</th>
+            <th className="px-4 py-2 border-b border-gray-300 text-left font-normal">
+              <SlCalender className="inline-block mr-2" />Created On
+            </th>
           )}
           {columns.includes("payer") && (
-            <th className="px-4 py-2 border-b border-gray-300 text-left font-normal">Payer</th>
+            <th className="px-4 py-2 border-b border-gray-300 text-left font-normal">
+              <CgProfile className="inline-block mr-2" />Payer
+            </th>
           )}
           {columns.includes("status") && (
-            <th className="px-4 py-2 border-b border-gray-300 text-left font-normal">Status</th>
+            <th className="px-4 py-2 border-b border-gray-300 text-left font-normal">
+              <LuCircle className="inline-block mr-2" />Status
+            </th>
           )}
           {columns.includes("email") && (
-            <th className="px-4 py-2 border-b border-gray-300 text-left font-normal">Email</th>
+            <th className="px-4 py-2 border-b border-gray-300 text-left font-normal">
+              <CiMail className="inline-block mr-2" />Email
+            </th>
           )}
           {columns.includes("phone") && (
-            <th className="px-4 py-2 border-b border-gray-300 text-left font-normal">Payer Phone</th>
+            <th className="px-4 py-2 border-b border-gray-300 text-left font-normal">
+              <BsHash className="inline-block mr-2" />Payer Phone
+            </th>
           )}
           {columns.includes("services") && (
-            <th className="px-4 py-2 border-b border-gray-300 text-left font-normal">Services</th>
+            <th className="px-4 py-2 border-b border-gray-300 text-left font-normal">
+              <BsHash className="inline-block mr-2" />Services
+            </th>
           )}
           {columns.includes("scheduled") && (
-            <th className="px-4 py-2 border-b border-gray-300 text-left-normal">Scheduled</th>
+            <th className="px-4 py-2 border-b border-gray-300 text-left font-normal">
+              <BsHash className="inline-block mr-2" />Scheduled
+            </th>
           )}
         </tr>
       </thead>
@@ -82,16 +102,22 @@ const WaitlistTable: React.FC<WaitlistTableProps> = ({
               <td className="px-4 py-2 border-b border-gray-300">{item.payer}</td>
             )}
             {columns.includes("status") && (
-              <td className="px-4 py-2 border-b border-gray-300"><span
-              className={`inline-block rounded-full px-2 py-1 text-xs font-semibold ${
-                item.status === "Active"
-                  ? "bg-green-200 text-green-800"
-                  : item.status === "Lead"
-                  ? "bg-blue-200 text-blue-800"
-                  : "bg-gray-200 text-gray-800"
-              }`}
-            >{item.status}</span></td>
-            )}
+  <td className="px-4 py-2 border-b border-gray-300">
+    <span
+      className={`inline-flex items-center rounded-full px-2 py-1 text-xs font-semibold ${
+        item.status === "Active"
+          ? "bg-green-200 text-green-800"
+          : item.status === "Lead"
+          ? "bg-blue-200 text-blue-800"
+          : "bg-gray-200 text-gray-800"
+      }`}
+    >
+      <GoDotFill className="inline-block mr-1" />
+      {item.status}
+    </span>
+  </td>
+)}
+
             {columns.includes("email") && (
               <td className="px-4 py-2 border-b border-gray-300">{item.email}</td>
             )}
@@ -112,4 +138,3 @@ const WaitlistTable: React.FC<WaitlistTableProps> = ({
 );
 
 export default WaitlistTable;
-
