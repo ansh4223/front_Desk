@@ -40,7 +40,7 @@ const columnLabels: { [key: string]: string } = {
   scheduled: 'Scheduled',
 };
 
-const perPage = 11;
+const perPage = 6;
 
 const Page: React.FC = () => {
   const [data, setData] = useState<WaitlistEntry[]>([]);
